@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      - LOG_LEVEL=debug
+    # Run as root to allow file synchronization
+    user: root
+    # Start the application with auto-reload on code changes
+    command: uv run uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+    develop:
+      watch:
+        # Sync application code to the container
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - .venv/
+        - action: rebuild
+          path: ./pyproject.toml
