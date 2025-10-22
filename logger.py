@@ -1,3 +1,5 @@
+"""Provide a logger that is configured to work with Google Cloud Logging."""
+
 import logging
 import os
 
@@ -20,4 +22,13 @@ else:
 
 
 def get_logger(name: str) -> logging.Logger:
+    """Get a logger with the specified name.
+
+    Args:
+        name: The name of the logger.
+
+    Returns:
+        A logger instance.
+
+    """
     return logging.getLogger(name)
