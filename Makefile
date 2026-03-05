@@ -33,3 +33,8 @@ setup:
 	uv sync --dev
 	@echo "==> Installing pre-commit hooks"
 	uv run pre-commit install
+
+test:
+	@echo "==> Running pytest"
+	uv run pytest
+
