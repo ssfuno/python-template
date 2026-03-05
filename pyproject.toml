@@ -23,6 +23,12 @@ dev = [
 select = [
     "ALL"
 ]
+ignore = [
+    # Avoid conflicts
+    "D203",  # incorrect-blank-line-before-class
+    "D213",  # multi-line-summary-second-line
+    "COM812" # missing-trailing-comma
+]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101"] # assert
