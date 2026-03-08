@@ -22,12 +22,13 @@ repos:
         types: [python]
         language: system
         pass_filenames: false
-      # - id: pyright
-      #   name: pyright
-      #   entry: uv run --frozen pyright
-      #   language: system
-      #   types: [python]
-      #   pass_filenames: false
+      - id: ty
+        name: ty
+        entry: uv run --frozen ty
+        args: [check]
+        language: system
+        types: [python]
+        pass_filenames: false
       - id: uv-lock-check
         name: Check uv.lock is up to date
         entry: uv lock --check
