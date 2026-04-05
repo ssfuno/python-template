@@ -28,8 +28,13 @@ jobs:
         with:
           enable-cache: true
 
+      - name: Setup Takumi Guard for PyPI
+        uses: flatt-security/setup-takumi-guard-pypi@v1
+
       - name: Install dependencies
         run: uv sync --locked --dev
+        env:
+          UV_INDEX_URL: https://pypi.flatt.tech/simple/
 
       - name: Lint with ruff
         run: uv run ruff check .
