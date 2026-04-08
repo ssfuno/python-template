@@ -32,7 +32,6 @@ _templates_suffix: ".jinja"
 _exclude:
   - copier.yml
   - TEMPLATE_README.md
-  - uv.lock
   - .venv
   - .git
   - .pytest_cache
