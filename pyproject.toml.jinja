@@ -1,9 +1,9 @@
 [project]
-name = "python-project-template-for-cloud-run"
+name = "{{ project_name }}"
 version = "0.1.0"
-description = "Add your description here"
+description = "{{ description }}"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">={{ python_version }}"
 dependencies = [
     "fastapi>=0.119.0",
     "google-cloud-logging>=3.11.4",

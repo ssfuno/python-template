@@ -1,0 +1,19 @@
+# {{ project_name }}
+
+{{ description }}
+
+## 主な特徴
+- FastAPIのサンプルアプリケーション
+- Cloud Run環境では`google-cloud-logging`を自動的にセットアップ
+
+## ローカル開発
+
+docker composeを使った起動（ファイル同期 + ホットリロード）
+
+```bash
+docker compose up watch
+```
+
+アプリにアクセス
+
+http://localhost:8080/

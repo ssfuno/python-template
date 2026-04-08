@@ -1,0 +1,44 @@
+# =============================================================================
+# Copier template configuration
+# https://copier.readthedocs.io/en/stable/configuring/
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Questions
+# ---------------------------------------------------------------------------
+project_name:
+  type: str
+  help: "プロジェクト名 (pyproject.toml の name フィールド、例: my-cloud-run-app)"
+
+description:
+  type: str
+  help: "プロジェクトの説明"
+  default: "Add your description here"
+
+python_version:
+  type: str
+  help: "Python バージョン"
+  default: "3.13"
+  choices:
+    - "3.12"
+    - "3.13"
+
+# ---------------------------------------------------------------------------
+# Template settings
+# ---------------------------------------------------------------------------
+_min_copier_version: "9.0.0"
+_templates_suffix: ".jinja"
+
+_exclude:
+  - copier.yml
+  - TEMPLATE_README.md
+  - uv.lock
+  - .venv
+  - .git
+  - .pytest_cache
+  - .ruff_cache
+  - "*.pyc"
+  - __pycache__
+
+_tasks:
+  - "uv lock"
