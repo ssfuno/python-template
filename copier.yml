@@ -27,17 +27,16 @@ python_version:
 # Template settings
 # ---------------------------------------------------------------------------
 _min_copier_version: "9.0.0"
+_subdirectory: project
 _templates_suffix: ".jinja"
 
 _exclude:
-  - copier.yml
-  - TEMPLATE_README.md
   - .venv
-  - .git
-  - .pytest_cache
-  - .ruff_cache
   - "*.pyc"
   - __pycache__
 
-_tasks:
-  - "uv lock"
+_message_after_copy: |
+  プロジェクトの生成が完了しました。次のコマンドで開発環境をセットアップしてください:
+
+    cd {{ _copier_conf.dst_path }}
+    make setup

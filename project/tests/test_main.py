@@ -2,9 +2,8 @@
 
 import pytest
 from fastapi import HTTPException
-from pytest_mock import MockerFixture
-
 from main import error, root
+from pytest_mock import MockerFixture
 
 INTERNAL_SERVER_ERROR_STATUS_CODE = 500
 

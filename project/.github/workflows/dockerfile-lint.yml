@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - Dockerfile.jinja
+      - Dockerfile
   pull_request:
     paths:
-      - Dockerfile.jinja
+      - Dockerfile
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,4 +25,4 @@ jobs:
       - name: Lint Dockerfile with hadolint
         uses: hadolint/hadolint-action@v3.3.0
         with:
-          dockerfile: Dockerfile.jinja
+          dockerfile: Dockerfile

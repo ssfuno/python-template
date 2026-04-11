@@ -1,0 +1,48 @@
+fail_fast: true
+
+repos:
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.3
+    hooks:
+      - id: uv-lock
+
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: Ruff Format
+        entry: uv run --frozen ruff
+        args: [format]
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: ruff
+        name: Ruff
+        entry: uv run --frozen ruff
+        args: ["check", "--fix", "--exit-non-zero-on-fix"]
+        types: [python]
+        language: system
+        pass_filenames: false
+      - id: ty
+        name: ty
+        entry: uv run --frozen ty
+        args: [check]
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: uv-lock-check
+        name: Check uv.lock is up to date
+        entry: uv lock --check
+        language: system
+        files: ^(pyproject\.toml|uv\.lock)$
+        pass_filenames: false
+      - id: pytest
+        name: Run pytest
+        entry: uv run --frozen pytest
+        args: ["-q"]
+        language: system
+        pass_filenames: false

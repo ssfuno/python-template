@@ -1,7 +1,6 @@
 """Provide a FastAPI application."""
 
 from fastapi import FastAPI, HTTPException
-
 from logger import get_logger
 
 logger = get_logger(__name__)

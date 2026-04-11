@@ -15,10 +15,14 @@ Google Cloud Run 向け Python プロジェクトのテンプレートです。[
 - Dependabot による依存関係の自動更新（Docker / GitHub Actions / uv）
 - Docker Compose によるローカル開発環境（ファイル同期 + ホットリロード）
 
+## 前提条件
+
+- [uv](https://docs.astral.sh/uv/) がインストール済みであること
+
 ## 使い方
 
 ```bash
-uvx copier copy gh:ssfuno/python-template ./my-project --trust
+uvx copier copy gh:ssfuno/python-template ./my-project
 ```
 
 対話形式で以下を入力します:
@@ -29,13 +33,20 @@ uvx copier copy gh:ssfuno/python-template ./my-project --trust
 | `description` | プロジェクトの説明 | `Add your description here` |
 | `python_version` | Python バージョン | `3.13` |
 
-生成後は `uv lock` が自動実行されます。
+生成後、開発環境をセットアップします:
+
+```bash
+cd ./my-project
+make setup
+```
+
+`make setup` は依存関係のインストールと pre-commit フックの登録を行います。
 
 ## テンプレートの更新を既存プロジェクトに適用
 
 ```bash
 cd ./my-project
-uvx copier update --trust
+uvx copier update
 ```
 
 ## 参考にした資料
