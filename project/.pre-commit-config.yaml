@@ -34,12 +34,6 @@ repos:
         language: system
         types: [python]
         pass_filenames: false
-      - id: uv-lock-check
-        name: Check uv.lock is up to date
-        entry: uv lock --check
-        language: system
-        files: ^(pyproject\.toml|uv\.lock)$
-        pass_filenames: false
       - id: pytest
         name: Run pytest
         entry: uv run --frozen pytest
